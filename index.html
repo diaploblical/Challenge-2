@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="container flex-column">
+      <div class="row ">
+        <div class="col-7 m-auto">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/assets/Splash_1.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/assets/Splash_2.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/assets/Splash_3.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/assets/Splash_4.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-3 mt-1">
+          <div class="card p-3" style="width: 18rem;">
+            <img src="/assets/preprlabs.png" class="card-img-top mb-3" alt="...">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="fName" placeholder="">
+              <label for="floatingInput">First name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="lName" placeholder="">
+              <label for="floatingInput">Last name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="username" placeholder="">
+              <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="password" placeholder="Password">
+              <label for="floatingPassword">Password</label>
+            </div>
+            <p class="fw-bold">Strength:</p>
+            <p>Password must include:</p>
+            <ul>
+              <li>8 to 14 characters</li>
+              <li>1 uppercase letter</li>
+              <li>1 lowercase letter</li>
+              <li>1 number</li>
+              <li>1 special character</li>
+            </ul>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+              <label for="floatingPassword">Confirm Password</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="email" placeholder="">
+              <label for="floatingInput">Email</label>
+            </div>
+            <select class="form-select mb-3" aria-label="Default select example" id="userType">
+              <option selected>User type</option>
+              <option value="Learner">Learner</option>
+              <option value="Job seeker/Applicant">Job seeker/Applicant</option>
+              <option value="Employee">Employee</option>
+              <option value="Founder">Founder</option>
+              <option value="Educator">Educator</option>
+              <option value="Mentor">Mentor</option>
+            </select>
+            <select class="form-select mb-3" aria-label="Default select example" id="language">
+              <option selected>Select language</option>
+              <option value="1">English</option>
+              <option value="2">French</option>
+            </select>
+            <input type="submit" class="btn btn-primary mb-3" onclick="register()" value="Register">
+            <p class="text-center">or</p>
+            <button type="button" class="btn btn-primary mb-3" onclick="sso()"><span class="p-2"><i class="fa-brands fa-google" style="color: #ffffff;"></i></span>Continue with Google</button>
+            <p class="text-center">Already have an account? <span><a href="/login.html">Log in</a></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+	  <script>
+      function register() {
+        let fName = document.getElementById("fName").value
+        let lName = document.getElementById("lName").value
+        let username = document.getElementById("username").value
+        let password = document.getElementById("password").value
+        let email = document.getElementById("email").value
+        let userType = document.getElementById("userType").value
+        sessionStorage.setItem("First Name", fName);
+        sessionStorage.setItem("Last Name", lName);
+        sessionStorage.setItem("Username", username);
+        sessionStorage.setItem("Email", email);
+        sessionStorage.setItem("User Type", userType);
+        window.location.href="login.html";
+      }
+      function sso() {
+        window.location.href="landing2.html";
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  </body>
+</html>
